@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dining Table Assembly · 3D Guide</title>
+  <meta name="description" content="Interactive 3D step-by-step assembly guide for a flat-pack 4-seater dining table." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    { "imports": { "three": "./vendor/three.module.min.js" } }
+  </script>
+</head>
+<body>
+  <div id="stage" aria-label="3D view of the table assembly"></div>
+
+  <header class="brand">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 32 32"><rect x="3" y="8" width="26" height="4" rx="1.5"/><rect x="6" y="12" width="3" height="14" rx="1"/><rect x="23" y="12" width="3" height="14" rx="1"/></svg>
+    </div>
+    <div>
+      <h1>Dining Table Assembly</h1>
+      <p>4-seater · flat-pack · 3D step-by-step</p>
+    </div>
+  </header>
+
+  <aside class="panel" id="panel">
+    <div class="step-meta">
+      <span class="badge" id="stepBadge">Step 0</span>
+      <span class="count" id="stepCount">of 9</span>
+    </div>
+    <h2 id="stepTitle">Parts overview</h2>
+    <p id="stepDesc" class="desc"></p>
+    <ul id="stepParts" class="parts"></ul>
+    <div class="tip" id="stepTip" hidden></div>
+
+    <div class="progress" id="progress" role="tablist" aria-label="Steps"></div>
+
+    <div class="controls">
+      <button id="prevBtn" class="btn ghost" aria-label="Previous step">&larr; Back</button>
+      <button id="replayBtn" class="btn icon" aria-label="Replay this step" title="Replay step">
+        <svg viewBox="0 0 24 24"><path d="M12 5V2L7 6l5 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z"/></svg>
+      </button>
+      <button id="playBtn" class="btn icon" aria-label="Auto-play all steps" title="Auto-play">
+        <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <button id="nextBtn" class="btn primary" aria-label="Next step">Next &rarr;</button>
+    </div>
+    <p class="hint">Drag to rotate · scroll to zoom · ← → keys to navigate</p>
+  </aside>
+
+  <footer class="note">Generic flat-pack design for illustration. Not affiliated with any furniture retailer.</footer>
+
+  <div id="loader" class="loader"><span></span>Preparing workshop…</div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
