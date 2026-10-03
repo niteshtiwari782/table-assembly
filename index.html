@@ -14,7 +14,59 @@
   </script>
 </head>
 <body>
-  <div id="stage" aria-label="3D view of the table assembly"></div>
+  <main id="landing" class="landing" hidden>
+    <header class="l-nav">
+      <a class="l-brand" href="#">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M8 4.5a2 2 0 0 1 2-2h1.5a2 2 0 0 1 2 2V20h14a2 2 0 0 1 2 2v1.5a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2z"/></svg>
+        </span>
+        Flat-pack 3D Guides
+      </a>
+      <a class="l-link" href="#guides">All guides</a>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Interactive assembly instructions</p>
+        <h1>Build your flat&#8209;pack furniture, one clear step at a time.</h1>
+        <p class="lede">Every step is animated in 3D. Watch each part move into place, then rotate, zoom and replay until it makes sense. No more squinting at paper diagrams.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#guides">Choose a guide</a>
+          <span class="hero-meta" id="heroMeta">Free · works on your phone</span>
+        </div>
+      </div>
+      <figure class="hero-art">
+        <img src="thumbs/hero.jpg" alt="An assembled L-shaped sofa in a living room" width="1200" height="750" />
+      </figure>
+    </section>
+
+    <section class="guides" id="guides">
+      <h2>What are you building?</h2>
+      <div class="cards" id="cards"></div>
+    </section>
+
+    <section class="how" aria-label="How it works">
+      <div>
+        <span class="num">1</span>
+        <h3>Check the parts</h3>
+        <p>Every guide opens with the full parts list and the tools you’ll need, so nothing is missing halfway through.</p>
+      </div>
+      <div>
+        <span class="num">2</span>
+        <h3>Follow it in 3D</h3>
+        <p>The parts for each step light up as they move into place. Drag to see it from any side, or replay the step.</p>
+      </div>
+      <div>
+        <span class="num">3</span>
+        <h3>Share a step</h3>
+        <p>The link always points at the step you’re on, so you can send your helper exactly where you are.</p>
+      </div>
+    </section>
+
+    <footer class="l-foot">Generic flat-pack designs for illustration. Not affiliated with any furniture retailer.</footer>
+  </main>
+
+  <div id="stage" aria-label="3D view of the furniture assembly"></div>
 
   <header class="top">
     <div class="brand">

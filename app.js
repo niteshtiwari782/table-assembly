@@ -296,6 +296,12 @@ const $ = id => document.getElementById(id);
 const progress = $('progress');
 const picker = $('picker');
 
+const home = document.createElement('a');
+home.className = 'chip home';
+home.href = '#';
+home.innerHTML = '<span aria-hidden="true">←</span> All guides';
+picker.appendChild(home);
+
 FURNITURE.forEach(f => {
   const b = document.createElement('button');
   b.className = 'chip';
@@ -407,34 +413,76 @@ function resize() {
 window.addEventListener('resize', resize);
 resize();
 
-function fromHash() {
-  const [id, step] = location.hash.replace('#', '').split('/');
-  return { f: FURNITURE.find(x => x.id === id) || FURNITURE[0], step: parseInt(step, 10) || 0 };
-}
-const initial = fromHash();
-load(initial.f, initial.step);
-camera.position.copy(viewFor(current).pos);
-controls.target.copy(viewFor(current).target);
-glide = null;
-window.addEventListener('hashchange', () => {
-  const h = fromHash();
-  if (h.f !== F) load(h.f, h.step);
-  else if (h.step !== current) goTo(h.step, false);
-});
-
-renderer.setAnimationLoop(() => {
+function frame() {
   const dt = Math.min(clock.getDelta(), 0.05);
   tick(dt);
   tickGlide(dt);
   controls.update();
   renderer.render(scene, camera);
+}
+
+// ---------------------------------------------------------------- Landing page & routing
+const landing = $('landing');
+$('heroMeta').textContent = `${FURNITURE.length} guides · free · works on your phone`;
+FURNITURE.forEach(f => {
+  const a = document.createElement('a');
+  a.className = 'card';
+  a.href = `#${f.id}`;
+  a.innerHTML = `
+    <div class="card-img"><img src="thumbs/${f.id}.jpg" alt="" loading="lazy" width="800" height="600" /></div>
+    <div class="card-body">
+      <h3></h3>
+      <p></p>
+      <ul class="card-meta">
+        <li>${f.steps.length - 1} steps</li><li>${f.time}</li><li>${f.people === 1 ? '1 person' : `${f.people} people`}</li>
+      </ul>
+      <span class="card-go">Open guide <span aria-hidden="true">→</span></span>
+    </div>`;
+  a.querySelector('h3').textContent = f.short;
+  a.querySelector('p').textContent = f.blurb;
+  $('cards').appendChild(a);
 });
+
+function showLanding(on) {
+  const was = !landing.hidden;
+  landing.hidden = !on;
+  document.body.classList.toggle('on-landing', on);
+  if (on) {
+    autoplay = false; updatePlayIcon(); anim = null;
+    document.title = 'Flat-pack Assembly · 3D Guides';
+    renderer.setAnimationLoop(null);
+    const target = location.hash === '#guides' ? $('guides') : null;
+    if (target) target.scrollIntoView({ behavior: was ? 'smooth' : 'auto' });
+    else if (!was) landing.scrollTop = 0;
+  } else {
+    renderer.setAnimationLoop(frame);
+  }
+  return was;
+}
+
+function route() {
+  const [id, step] = location.hash.replace('#', '').split('/');
+  const f = FURNITURE.find(x => x.id === id);
+  if (!f) { showLanding(true); return; }
+  const fromLanding = showLanding(false) || !F;
+  const s = parseInt(step, 10) || 0;
+  if (f !== F) load(f, s);
+  else if (s !== current) goTo(s, false);
+  if (fromLanding) {
+    camera.position.copy(viewFor(current).pos);
+    controls.target.copy(viewFor(current).target);
+    glide = null;
+    document.title = `${F.title} · 3D Guide`;
+  }
+}
+window.addEventListener('hashchange', route);
+route();
 
 requestAnimationFrame(() => $('loader').classList.add('hide'));
 
 // exposed for debugging / screenshots
 window.__guide = {
-  goTo, snapTo, camera, controls, FURNITURE,
+  goTo, snapTo, camera, controls, FURNITURE, route,
   load: (id, step) => load(FURNITURE.find(f => f.id === id), step),
   get current() { return current; }, get busy() { return !!anim; },
 };

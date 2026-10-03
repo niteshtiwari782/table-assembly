@@ -81,6 +81,7 @@ export default {
   short: 'Coffee table',
   title: 'Coffee Table Assembly',
   tagline: 'With lower shelf · screw-in legs · 3D step-by-step',
+  time: '20 min', people: 1, blurb: 'Mounting plates, screw-in legs and a drop-in lower shelf.',
   icon: '<rect x="3" y="11" width="26" height="3.5" rx="1.5"/><rect x="5" y="14" width="3" height="12" rx="1"/><rect x="24" y="14" width="3" height="12" rx="1"/><rect x="8" y="21" width="16" height="2.5"/>',
   parts: PARTS,
   steps: STEPS,

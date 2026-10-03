@@ -87,6 +87,7 @@ export default {
   short: 'Bed frame',
   title: 'Bed Frame Assembly',
   tagline: '160 × 200 double · hook-on rails · 3D step-by-step',
+  time: '30 min', people: 2, blurb: 'Hook-on side rails, a centre beam with support leg and 12 slats. No screws.',
   icon: '<rect x="3" y="6" width="4" height="20" rx="1"/><rect x="25" y="13" width="4" height="13" rx="1"/><rect x="7" y="17" width="18" height="4"/><rect x="8" y="13" width="7" height="4" rx="1.5"/>',
   parts: PARTS,
   steps: STEPS,

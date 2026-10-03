@@ -8,7 +8,7 @@ Interactive 3D, step-by-step assembly guides for flat-pack furniture, built with
 - **Coffee table**: screw-in legs and a lower shelf
 - **L-shaped sofa**: 7-seater sectional of three units joined with connector brackets
 
-**Controls:** pick a piece of furniture at the top, then use Next/Back, replay the current step, or auto-play everything. Drag to rotate, scroll to zoom, arrow keys to navigate.
+The site opens on a landing page listing every guide. **Controls:** inside a guide, switch furniture at the top (or go back to *All guides*), then use Next/Back, replay the current step, or auto-play everything. Drag to rotate, scroll to zoom, arrow keys to navigate.
 
 **Links to a step:** the URL tracks what you're looking at, e.g. `#bookshelf/4` or `#l-sofa/0`.
 
@@ -25,6 +25,7 @@ python3 -m http.server 8000
 - `src/room.js`: the living room
 - `src/kit.js`: shared materials, helpers and hardware (screws, cam locks, brackets…)
 - `src/<furniture>.js`: one module per item, with its parts, steps, camera views and geometry
+- `thumbs/`: preview images for the landing page (renders of each finished piece)
 
 Deploy with GitHub Pages: Settings → Pages → Deploy from branch → `main` / root.
 

@@ -89,6 +89,7 @@ export default {
   short: 'Dining table',
   title: 'Dining Table Assembly',
   tagline: '4-seater · flat-pack · 3D step-by-step',
+  time: '30 min', people: 2, blurb: 'Rails, corner brackets and wing-nut legs, built upside-down on a blanket.',
   icon: '<rect x="3" y="8" width="26" height="4" rx="1.5"/><rect x="6" y="12" width="3" height="14" rx="1"/><rect x="23" y="12" width="3" height="14" rx="1"/>',
   parts: PARTS,
   steps: STEPS,

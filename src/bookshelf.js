@@ -73,6 +73,7 @@ export default {
   short: 'Bookshelf',
   title: 'Bookshelf Assembly',
   tagline: '5 shelves · cam-lock flat-pack · 3D step-by-step',
+  time: '45 min', people: 2, blurb: 'Cam pins, cam locks and a nailed-on back panel, built face-down then stood up.',
   icon: '<rect x="7" y="3" width="3" height="26" rx="1"/><rect x="22" y="3" width="3" height="26" rx="1"/><rect x="9" y="3" width="14" height="2.5"/><rect x="9" y="12" width="14" height="2.5"/><rect x="9" y="21" width="14" height="2.5"/>',
   parts: PARTS,
   steps: STEPS,

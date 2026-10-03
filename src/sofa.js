@@ -73,6 +73,7 @@ export default {
   short: 'L-shaped sofa',
   title: 'L-Shaped Sofa Assembly',
   tagline: '7-seater sectional · 3 units · 3D step-by-step',
+  time: '40 min', people: 2, blurb: 'Three units joined with connector brackets, plus 14 cushions.',
   icon: '<rect x="3" y="6" width="5" height="20" rx="1.5"/><rect x="3" y="21" width="26" height="5" rx="1.5"/><rect x="8" y="15" width="7" height="6" rx="1"/>',
   parts: PARTS,
   steps: STEPS,
