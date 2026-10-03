@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dining Table Assembly · 3D Guide</title>
-  <meta name="description" content="Interactive 3D step-by-step assembly guide for a flat-pack 4-seater dining table." />
+  <title>Flat-pack Assembly · 3D Guides</title>
+  <meta name="description" content="Interactive 3D step-by-step assembly guides for flat-pack furniture: dining table, bookshelf, bed frame, coffee table and L-shaped sofa." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -16,20 +16,23 @@
 <body>
   <div id="stage" aria-label="3D view of the table assembly"></div>
 
-  <header class="brand">
-    <div class="logo" aria-hidden="true">
-      <svg viewBox="0 0 32 32"><rect x="3" y="8" width="26" height="4" rx="1.5"/><rect x="6" y="12" width="3" height="14" rx="1"/><rect x="23" y="12" width="3" height="14" rx="1"/></svg>
+  <header class="top">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 32 32" id="brandIcon"></svg>
+      </div>
+      <div>
+        <h1 id="brandTitle">Assembly Guide</h1>
+        <p id="brandTag">Flat-pack · 3D step-by-step</p>
+      </div>
     </div>
-    <div>
-      <h1>Dining Table Assembly</h1>
-      <p>4-seater · flat-pack · 3D step-by-step</p>
-    </div>
+    <nav class="picker" id="picker" aria-label="Choose furniture"></nav>
   </header>
 
   <aside class="panel" id="panel">
     <div class="step-meta">
       <span class="badge" id="stepBadge">Step 0</span>
-      <span class="count" id="stepCount">of 9</span>
+      <span class="count" id="stepCount"></span>
     </div>
     <h2 id="stepTitle">Parts overview</h2>
     <p id="stepDesc" class="desc"></p>
